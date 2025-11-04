@@ -3,22 +3,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Frontend Mentor | Mortgage repayment calculator</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Mortgage repayment calculator</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+
+  <!-- mobile-first css then desktop css overrides -->
   <link rel="stylesheet" href="mobile.css">
   <link rel="stylesheet" href="desktop.css">
 </head>
 <body>
+  <!-- main calculator container with aria -->
   <main class="calculator" aria-labelledby="pageTitle">
+
+    <!-- inputs form with reset -->
     <form id="mortgageForm" class="calculator__form" novalidate>
+
       <header class="calculator__header">
         <h1 id="pageTitle">Mortgage Calculator</h1>
+
+        <!-- reset button clears form and triggers reset handler -->
         <button type="reset" id="clearBtn" class="btn btn--clear">Clear All</button>
       </header>
 
+      <!-- amount input group -->
       <div class="form-group adorn">
         <label for="amount">Mortgage Amount</label>
-        <span class="adorn-symbol" aria-hidden="true">$</span>
+        <span class="adorn-symbol" aria-hidden="true">$</span> <!-- $ positioned with css -->
         <input
           type="number"
           id="amount"
@@ -28,12 +38,13 @@
           min="0"
           required
           aria-describedby="amountError"
-          aria-required="true"
           placeholder="e.g. 300000"
         >
+        <!-- inline error area with aria -->
         <span class="error" id="amountError" aria-live="polite"></span>
       </div>
 
+      <!-- term input group -->
       <div class="form-group adorn">
         <label for="term">Mortgage Term</label>
         <input
@@ -45,13 +56,13 @@
           min="1"
           required
           aria-describedby="termError"
-          aria-required="true"
           placeholder="years"
         >
         <span class="adorn-symbol" aria-hidden="true">years</span>
         <span class="error" id="termError" aria-live="polite"></span>
       </div>
 
+      <!-- rate input group -->
       <div class="form-group adorn">
         <label for="rate">Interest Rate</label>
         <input
@@ -63,37 +74,46 @@
           min="0"
           required
           aria-describedby="rateError"
-          aria-required="true"
           placeholder="annual % (e.g. 5.25)"
         >
         <span class="adorn-symbol" aria-hidden="true">%</span>
         <span class="error" id="rateError" aria-live="polite"></span>
       </div>
 
+      <!-- mortgage type radio buttons -->
       <fieldset class="form-group">
         <legend>Mortgage Type</legend>
-        <label class="radio-label"><input type="radio" name="type" value="repayment" checked aria-required="true"> Repayment</label>
-        <label class="radio-label"><input type="radio" name="type" value="interest-only"> Interest Only</label>
+        <label class="radio-label">
+          <input type="radio" name="type" value="repayment" checked> Repayment
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="type" value="interest-only"> Interest Only
+        </label>
       </fieldset>
 
+      <!-- submit button with provided svg asset -->
       <button type="submit" id="calculateBtn" class="btn btn--primary">
         <img src="assets/images/icon-calculator.svg" alt="" class="btn-icon" aria-hidden="true">
         Calculate Repayments
       </button>
     </form>
 
+    <!-- results panel -->
     <section id="results" class="calculator__results" role="status" aria-live="polite" aria-atomic="true">
+      <!-- empty state with provided svg asset-->
       <div class="results--empty" id="resultsEmpty">
-        <img src="assets/images/illustration-empty.svg" alt="" class="illustration">
+        <img src="assets/images/illustration-empty.svg" alt="" class="illustration" />
         <h2>Results shown here</h2>
         <p>Complete the form and click “Calculate repayments” to see what your monthly repayments would be.</p>
       </div>
 
+      <!--results hidden by default -->
       <div class="results--filled hidden" id="resultsFilled" aria-hidden="true">
         <h2>Your results</h2>
         <p>Your results are shown below based on the information you provided.</p>
         <p>To adjust, edit the form and click again.</p>
 
+        <!-- monthly and total payment boxes -->
         <div class="result-box">
           <h3>Your monthly repayments</h3>
           <p id="monthlyPayment" class="result-value" aria-label="Monthly payment"></p>
@@ -109,7 +129,7 @@
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">MaddieP</a>.
   </div>
 
   <script src="main.js"></script>
