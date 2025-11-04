@@ -182,9 +182,28 @@ input[type="radio"]:focus-visible {
   transform: translateY(-50%);
   color: var(--slate-500);
   font-size: 0.9rem;
+  pointer-events: none;
 }
 
-/* inline error message */
+/* position years, %, $ */
+.form-group.adorn { position: relative; }
+
+.adorn--left {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--slate-500);
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.form-group.adorn .adorn--left + input[type="number"],
+.form-group.adorn input[type="number"].has-left-adorn {
+  padding-left: 2.6rem;
+}
+
+/* inline error */
 .error {
   color: var(--red);
   font-size: 0.8rem;

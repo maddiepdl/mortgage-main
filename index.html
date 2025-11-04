@@ -3,11 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Mortgage repayment calculator</title>
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-
-  <!-- mobile-first css then desktop css overrides -->
   <link rel="stylesheet" href="mobile.css">
   <link rel="stylesheet" href="desktop.css">
 </head>
@@ -25,10 +22,10 @@
         <button type="reset" id="clearBtn" class="btn btn--clear">Clear All</button>
       </header>
 
-      <!-- amount input group -->
+      <!-- amount input group with $ on left) -->
       <div class="form-group adorn">
         <label for="amount">Mortgage Amount</label>
-        <span class="adorn-symbol" aria-hidden="true">$</span> <!-- $ positioned with css -->
+        <span class="adorn-symbol adorn--left" aria-hidden="true">$</span> <!-- $ positioned with css on the left -->
         <input
           type="number"
           id="amount"
@@ -92,7 +89,7 @@
       </fieldset>
 
       <!-- submit button with provided svg asset -->
-      <button type="submit" id="calculateBtn" class="btn btn--primary">
+      <button type="submit" id="calculateBtn" class="btn btn--primary" aria-controls="results">
         <img src="assets/images/icon-calculator.svg" alt="" class="btn-icon" aria-hidden="true">
         Calculate Repayments
       </button>
@@ -102,7 +99,7 @@
     <section id="results" class="calculator__results" role="status" aria-live="polite" aria-atomic="true">
       <!-- empty state with provided svg asset-->
       <div class="results--empty" id="resultsEmpty">
-        <img src="assets/images/illustration-empty.svg" alt="" class="illustration" />
+        <img src="assets/images/illustration-empty.svg" alt="" class="illustration">
         <h2>Results shown here</h2>
         <p>Complete the form and click “Calculate repayments” to see what your monthly repayments would be.</p>
       </div>

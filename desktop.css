@@ -54,6 +54,11 @@
 
   input[type="number"] { font-size: 1.05rem; padding: 1rem 3.5rem 1rem 1rem; }
 
-  /* align results */
+  /* align results with $ on left side */
   #results { display: flex; align-items: center; }
+  .form-group.adorn .adorn--left + input[type="number"],
+  .form-group.adorn input[type="number"].has-left-adorn {
+    padding-left: 3rem;
+  }
+  .form-group.adorn .adorn--left { left: 1.25rem; }
 }
